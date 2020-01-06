@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Serial</title>
+        <script type="text/javascript">
+            function showVal(newVal){
+              document.getElementById("valBox").innerHTML=newVal;
+              $.ajax({
+                url: "?btnAction=MV"+newVal,
+                type: "GET"
+            });
+            }
+        </script>
+    </head>
+    <body>
+        <form action="/" method="post">
+            <table border="0" style="height:95%; width:100%">
+                <tr>
+                    <td class="item"><button class="button btnRed" type="submit" name="btnAction" value="PWON" class="btn-link">PWON</button></td>
+                    <td class="item"><button class="button" type="submit" name="btnAction" value="PWSTANDBY" class="btn-link">PWSTANDBY</button></td>
+                </tr>
+                <tr><td colspan="2" class="item">
+                    min
+                    <input style="width: 100%;" type="range" min="0" max="70" step="1"  oninput="showVal(this.value)" onchange="showVal(this.value)">
+                    max. <span id="valBox"></span></td></tr>
+<tr><td colspan="2" class="item"><button class="button btnBlue" type="submit" name="btnAction" value="SIDVD" class="btn-link">SIDVD</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button btnBlue" type="submit" name="btnAction" value="SITV/CBL" class="btn-link">SITV/CBL</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button btnBlue" type="submit" name="btnAction" value="SICD" class="btn-link">SICD</button></td></tr>
+
+<tr><td colspan="2" class="item"></td></tr>
+
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIDVR" class="btn-link">SIDVR</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIPHONO" class="btn-link">SIPHONO</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SITUNER" class="btn-link">SITUNER</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIVCR" class="btn-link">SIVCR</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIV.AUX" class="btn-link">SIV.AUX</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIXM" class="btn-link">SIXM</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIIPOD" class="btn-link">SIIPOD</button></td></tr>
+<tr><td colspan="2" class="item"><button class="button" type="submit" name="btnAction" value="SIAUX" class="btn-link">SIAUX</button></td></tr>
+            </table>
+
+        </form>
+    </body>
+</html>
